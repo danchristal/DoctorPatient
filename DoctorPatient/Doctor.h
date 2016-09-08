@@ -8,11 +8,29 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Doctor : NSObject
+//@protocol DoctorProtocol <NSObject>
+//
+//-(void)acceptPatient:(Patient *)patient;
+//
+//@end
 
-@property NSString *name;
-@property NSString *specialization;
+@class Patient;
+
+@interface Doctor :  NSObject
+
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *specialization;
+@property (nonatomic, strong) NSMutableSet *acceptedPatients;
+@property (nonatomic, strong) NSDictionary *symptomMedications;
+
+//@property (nonatomic, strong) Patient *patient;
 
 -(instancetype)initWithName:(NSString *)name AndSpecialization:(NSString *)specialization;
 
+-(BOOL)acceptPatient:(Patient *)patient;
+
+-(void)requestMedication:(Patient *)patient;
+
 @end
+
+
